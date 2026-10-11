@@ -28,7 +28,8 @@ Purpose: prepare a transparent class submission; completed drafts still require 
 - [ ] Confirm project continuation, actual listing fields, sponsor policy, reviewer authority, stack, capacity, and due date
 - [ ] Execute required Gemini/AI Studio interactions if instructor requires them; record actual output
 - [ ] Complete Project and milestone configuration
-- [ ] Publish documentation commit and verify instructor access
+- [x] Publish initial documentation commit b359816 to main
+- [ ] Verify instructor access to the private repository
 - [ ] Replace simulations only if actual approved evidence becomes available
 
 ## Individual contribution statement — draft for student verification
@@ -39,7 +40,7 @@ Canvas assignment settings and rubric have not been supplied; verify them before
 1. Sign in to the CSULA Canvas course for CIS 3610 and open the actual Lab 4 assignment.
 2. Read the rubric, due date, required file format, and whether submission is individual or by group.
 3. Review these documents with the team; complete required tool critiques and board setup, or clearly disclose pending items.
-4. Publish the local documentation commit. Confirm the instructor can access the private repository and linked issues/board; coordinate access with the owner.
+4. Confirm the published documentation is current and the instructor can access the private repository and linked issues/board; coordinate access with the owner.
 5. If Canvas offers Website URL, submit the repository or Lab 4 folder URL as requested, with issue/board links and AI disclosure in the allowed text/comment field.
 6. If Canvas requires File Upload, package the reviewed docs/lab-04 folder and required repository files in the permitted format. Do not upload .git, secrets, raw identifying notes, or consent records.
 7. Include the verified individual contribution statement and explicitly identify simulated material and unfinished requirements.

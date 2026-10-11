@@ -5,10 +5,11 @@ Confirmed private repository: https://github.com/byteboss22/cis3610-capstone-bea
 Connected identity: Atomic-Rose, confirmed write permission.
 Planning issue: [#1](https://github.com/byteboss22/cis3610-capstone-beacon/issues/1).
 Validation feature: [#2](https://github.com/byteboss22/cis3610-capstone-beacon/issues/2), assigned to Atomic-Rose with enhancement, validation, and ui labels confirmed by GitHub.
-Milestone and project board: **Not yet created**. Available connector tools do not manage Projects or milestones; CLI authentication is invalid.
+Documentation commit b359816 was successfully pushed to main using existing Git credentials. Milestone and project board: **Not yet created**. Available connector tools do not manage Projects or milestones; CLI authentication is invalid.
 Issue creation was preceded by a repository-wide issue search with no existing issues returned. Do not recreate these issues.
 
-## Restore CLI access and publish the local commit
+## Restore CLI access for remaining setup
+The initial documentation is already published. The following publishing commands also apply to future local updates.
 Run from the repository in PowerShell:
 ```powershell
 gh auth login --hostname github.com --git-protocol https --web
