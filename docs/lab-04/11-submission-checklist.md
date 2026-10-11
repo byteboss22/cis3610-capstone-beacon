@@ -7,8 +7,8 @@ Purpose: prepare a transparent class submission; completed drafts still require 
 | Pull request URL | Not yet created |
 | Planning issue | [#1](https://github.com/byteboss22/cis3610-capstone-beacon/issues/1) |
 | Feature issue | [#2](https://github.com/byteboss22/cis3610-capstone-beacon/issues/2) |
-| Project board URL | Not yet created; steps in github-setup.md |
-| Week 8 MVP milestone | Not yet created |
+| Project board URL | [Capstone Project](https://github.com/users/Atomic-Rose/projects/1), private; nine items configured |
+| Week 8 MVP milestone | [Milestone #1](https://github.com/byteboss22/cis3610-capstone-beacon/milestone/1), attached to issue #2 |
 | AI log | [10-ai-provenance-log.md](10-ai-provenance-log.md) |
 | Test evidence | [validation-evidence.md](validation-evidence.md); documentation checks only |
 | Deployment URL | Not applicable; planning-only repository |
@@ -27,7 +27,9 @@ Purpose: prepare a transparent class submission; completed drafts still require 
 - [ ] Student/team review content and contribution statement
 - [ ] Confirm project continuation, actual listing fields, sponsor policy, reviewer authority, stack, capacity, and due date
 - [ ] Execute required Gemini/AI Studio interactions if instructor requires them; record actual output
-- [ ] Complete Project and milestone configuration
+- [x] Create Project, five statuses, Priority/Effort fields, and all eight story items plus planning issue
+- [x] Create Week 8 MVP milestone and attach issue #2
+- [ ] Set Capstone Board view grouping to Status and save; confirm team/instructor Project access (github-setup.md)
 - [x] Publish initial documentation commit b359816 to main
 - [ ] Verify instructor access to the private repository
 - [ ] Replace simulations only if actual approved evidence becomes available

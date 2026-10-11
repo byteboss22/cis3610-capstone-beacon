@@ -13,7 +13,7 @@ Purpose: disclose actual assistance and distinguish generated drafts from eviden
 | Related files or commit | docs/lab-04/, .github/, README.md; identify commit with git log -1 |
 | Verification status | AI-authored provisional drafts; see validation-evidence.md for structural checks |
 
-GitHub connector confirmed private visibility, write permission, issue #1, issue #2, labels, and feature assignee. It is an API connector, not additional stakeholder evidence. CLI authentication failed; Projects and milestone have not been created.
+GitHub connector confirmed private visibility, write permission, issue #1, issue #2, labels, and feature assignee. It is an API connector, not additional stakeholder evidence. CLI authentication initially failed. After the user authenticated and approved project scope, Codex used gh to create milestone #1 and private Project Atomic-Rose/1, configure five statuses and Priority/Effort fields, add nine items, and verify the results. Board layout is confirmed; grouping by Status requires a manual UI step. Direct repository linking was rejected because the owners differ, while adding repository issues succeeded. No connected browser was available for the grouping step.
 
 ## Other interactions — not executed
 | Tool | Prompt | Purpose | Useful output | Rejected/modified output | Human verification | Related file | Status |

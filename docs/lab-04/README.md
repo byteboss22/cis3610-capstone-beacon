@@ -14,7 +14,7 @@ Purpose: organize Team Beacon's review package. All business requirements are pr
 | [09 Content approval](09-content-approval.md) | Review states and failures |
 | [10 AI provenance](10-ai-provenance-log.md) | Actual and pending tool usage |
 | [11 Submission checklist](11-submission-checklist.md) | Evidence and Canvas submission steps |
-| [GitHub setup](github-setup.md) | Remaining board, labels, milestone, and publishing steps |
+| [GitHub setup](github-setup.md) | Confirmed Project/milestone and remaining view/access steps |
 | [Validation evidence](validation-evidence.md) | Documentation checks; no application tests |
 
 Review sequence: verify assignment scope, approve outreach, collect consent and de-identified notes, replace simulations, reconcile requirements, confirm MVP and owners, then submit.

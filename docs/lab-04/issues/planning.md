@@ -10,7 +10,7 @@ Purpose: complete Lab 4 discovery and provisional MVP planning; no implementatio
 - [ ] Confirm Week 8 scope, capacity, and content review authority
 - [ ] Review AI provenance and submission checklist
 
-Documents: [Lab 4 index](https://github.com/byteboss22/cis3610-capstone-beacon/blob/main/docs/lab-04/README.md), [stories](https://github.com/byteboss22/cis3610-capstone-beacon/blob/main/docs/lab-04/07-user-stories.md), [MVP plan](https://github.com/byteboss22/cis3610-capstone-beacon/blob/main/docs/lab-04/08-mvp-plan.md), [AI log](https://github.com/byteboss22/cis3610-capstone-beacon/blob/main/docs/lab-04/10-ai-provenance-log.md). New document links become available after the local documentation commit is pushed.
+Documents: [Lab 4 index](https://github.com/byteboss22/cis3610-capstone-beacon/blob/main/docs/lab-04/README.md), [stories](https://github.com/byteboss22/cis3610-capstone-beacon/blob/main/docs/lab-04/07-user-stories.md), [MVP plan](https://github.com/byteboss22/cis3610-capstone-beacon/blob/main/docs/lab-04/08-mvp-plan.md), [AI log](https://github.com/byteboss22/cis3610-capstone-beacon/blob/main/docs/lab-04/10-ai-provenance-log.md). Documentation is published on main.
 
 Outstanding uncertainties: project continuation, listing fields, sponsor claims, reviewer permissions, actual stakeholder needs, course deadline, and approved stack.
 

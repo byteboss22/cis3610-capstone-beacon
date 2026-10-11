@@ -9,4 +9,6 @@ AI consistency review: US-02 and issue #2 both prevent blank-price submission an
 
 GitHub confirmation: private repository and write permission; no existing issues found before creation; issues #1 and #2 created; feature labels and Atomic-Rose assignee confirmed. Git push confirmed documentation commit b359816 on main; the working tree was clean afterward. No board, milestone, interview, Gemini run, AI Studio run, or deployment is claimed.
 
+Follow-up CLI verification confirmed milestone #1 on issue #2, private Project Atomic-Rose/1, exactly five requested Status options, nine Project items, all eight story priorities/efforts matching the requirements, and Backlog status for every item. GitHub confirmed Board layout but returned no grouping field. Set Group by Status manually. Direct repository linking was rejected due to different owners; both repository issues were successfully added. These later confirmations supersede the initial absence of Project and milestone above.
+
 Mermaid was inspected as source; graphical rendering was not executed. No application exists, so Gherkin scenarios are proposed acceptance criteria, not passing functional tests. Human academic/content verification remains pending.
