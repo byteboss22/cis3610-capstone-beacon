@@ -1,0 +1,11 @@
+# Local secrets and workstation files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+.DS_Store
+Thumbs.db
+*.log
+~$*

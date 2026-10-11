@@ -1,0 +1,510 @@
+# Codex Task: CIS 3610 — Lab 4 Capstone Setup
+
+You are assisting me with a university web design and development capstone project for **CIS 3610 at California State University, Los Angeles**.
+
+I am a member of **Team B — Beacon**.
+
+## Project Background
+
+Our professor assigned Lab 4: Discovery, Responsible Outreach, and Product Requirements.
+
+The assignment involves planning a web platform serving two stakeholder groups:
+
+1. Property professionals, such as real estate agents.
+2. Local sponsors, such as local business owners.
+
+The professor has not yet clarified whether this is a continuation of an existing project or a new repository.
+
+For now, treat this as a **new capstone repository if an existing team repository has not already been identified**.
+
+Proposed repository name:
+
+`cis3610-capstone-beacon`
+
+Proposed platform:
+
+A real estate and local business platform where property professionals can manage listings and local sponsors can promote their services.
+
+This is a provisional concept, not a confirmed business requirement.
+
+**Important:** This lab is focused on requirements gathering and planning. Do not build a functional website, backend, database, or deployment unless I explicitly authorize it.
+
+## Your Primary Objective
+
+Automate as much of the initial Lab 4 setup as possible.
+
+Create a clean, organized GitHub repository, generate starter documentation, draft realistic hypothetical requirements, and configure GitHub project-management artifacts where permissions and available tools allow.
+
+Prioritize completing the documentation and planning deliverables.
+
+## Task 1 — Inspect the Existing Environment
+
+Before making changes:
+
+1. Inspect the current working directory.
+2. Determine whether it is already a Git repository.
+3. Check for an existing GitHub remote.
+4. Check whether GitHub CLI (`gh`) is installed and authenticated.
+5. Check for existing files, issues, or project documentation.
+
+If this is already the team's capstone repository, use it.
+
+If it is not a Git repository and no existing capstone project has been identified, initialize a new repository named:
+
+`cis3610-capstone-beacon`
+
+Use private visibility by default.
+
+Do not delete, overwrite, or modify unrelated existing work.
+
+If GitHub authentication or permissions are unavailable, complete the local setup and provide the exact commands needed for me to finish connecting GitHub.
+
+## Task 2 — Create Repository Structure
+
+Create the following structure:
+
+```text
+cis3610-capstone-beacon/
+├── README.md
+├── .gitignore
+├── docs/
+│   └── lab-04/
+│       ├── README.md
+│       ├── 01-stakeholder-analysis.md
+│       ├── 02-interview-guide.md
+│       ├── 03-invitation-consent.md
+│       ├── 04-interview-notes.md
+│       ├── 05-ai-themes.md
+│       ├── 06-personas.md
+│       ├── 07-user-stories.md
+│       ├── 08-mvp-plan.md
+│       ├── 09-content-approval.md
+│       ├── 10-ai-provenance-log.md
+│       └── 11-submission-checklist.md
+└── .github/
+    ├── ISSUE_TEMPLATE/
+    │   ├── feature-request.md
+    │   └── discovery-task.md
+    └── pull_request_template.md
+```
+
+Write professional, clearly organized Markdown documentation.
+
+Each document should explain its purpose and contain useful initial material, rather than empty placeholders.
+
+Do not introduce unnecessary frameworks or dependencies.
+
+## Task 3 — Stakeholder Analysis
+
+Create `01-stakeholder-analysis.md`.
+
+Identify the two stakeholder groups:
+
+**Stakeholder A: Property Professional**
+
+Example role: Residential Real Estate Agent.
+
+Potential needs:
+- Manage property listings.
+- Update listing information.
+- Communicate with prospective clients.
+- Maintain accurate listing details.
+
+**Stakeholder B: Local Sponsor**
+
+Example role: Local Business Owner.
+
+Potential needs:
+- Promote products or services.
+- Submit advertising content.
+- Reach nearby customers.
+- Monitor or update advertisements.
+
+Create a table separating:
+
+- Facts confirmed by the assignment.
+- Hypothetical assumptions.
+- Unknowns requiring confirmation.
+
+Do not treat hypothetical business needs as verified interview findings.
+
+Include a provisional one-page value proposition.
+
+## Task 4 — Discovery Interview Guide
+
+Create `02-interview-guide.md`.
+
+Generate exactly eight neutral discovery questions covering:
+
+1. Existing business workflow.
+2. Operational challenges.
+3. Target audience.
+4. Website content requirements.
+5. Content approval responsibilities.
+6. Business success measures.
+7. Accessibility and mobile usability.
+8. Integration or technical requirements.
+
+Each question should avoid leading the stakeholder toward a specific solution.
+
+Include a short section explaining why the questions are neutral and how they help requirements gathering.
+
+Include a section reserved for Gemini's critique of leading or privacy-invasive questions.
+
+Do not claim Gemini was used unless its output is actually provided or the tool is available and executed.
+
+## Task 5 — Invitation and Consent
+
+Create `03-invitation-consent.md`.
+
+Draft a professional stakeholder outreach invitation identifying:
+
+- Student project and university.
+- Purpose of the discovery interview.
+- Expected duration of approximately 15 minutes.
+- Voluntary participation.
+- How interview notes will be used.
+- Privacy considerations.
+- Participant's option to decline or stop.
+
+Create separate consent language covering note-taking and use of de-identified information in class documentation.
+
+Include a visible warning:
+
+**DO NOT CONTACT STAKEHOLDERS WITHOUT INSTRUCTOR APPROVAL.**
+
+Do not send emails, place calls, or contact any businesses.
+
+## Task 6 — Simulated Discovery Scenario
+
+Create `04-interview-notes.md`.
+
+Because no verified stakeholder interview has been supplied, create an illustrative scenario rather than fabricating real interview evidence.
+
+Use this hypothetical example:
+
+A residential real estate agent has difficulty maintaining accurate property listings because required information is sometimes missing or incorrectly formatted.
+
+A local sponsor wants to submit promotional information but needs clarity about content requirements and approvals.
+
+Include:
+- Stakeholder roles.
+- Hypothetical operational pain points.
+- Example observations.
+- Possible requirements.
+- Unanswered questions.
+- Explicit statements that the examples are simulated.
+
+Do not invent real stakeholder names, business affiliations, quotations, consent, or interview dates.
+
+Clearly label the document:
+
+**SIMULATED DISCOVERY MATERIAL — NOT VERIFIED STAKEHOLDER INTERVIEW EVIDENCE**
+
+If instructor-supplied personas become available, the simulated material can later be replaced.
+
+## Task 7 — AI Themes and Requirements
+
+Create `05-ai-themes.md`.
+
+Analyze the hypothetical notes and identify:
+
+- Recurring themes.
+- Operational problems.
+- Possible platform features.
+- Stakeholder uncertainties.
+- Candidate requirements.
+
+Include a traceability table connecting each proposed requirement to its specific simulated observation.
+
+Clearly distinguish:
+
+- Supported by the hypothetical scenario.
+- AI inference.
+- Pending real stakeholder confirmation.
+
+Include the exact prompt that can be pasted into Google AI Studio:
+
+"Convert these de-identified interview notes into themes, uncertainties, and candidate requirements. Quote no more than necessary. Mark every inference as an inference and list questions that require stakeholder confirmation."
+
+Do not claim that AI Studio has been run unless it actually has.
+
+## Task 8 — Create Two Personas
+
+Create `06-personas.md`.
+
+Develop two hypothetical personas:
+
+**Persona 1: Residential Listing Agent**
+
+Include:
+- Role and responsibilities.
+- Goals.
+- Potential frustrations.
+- Existing workflow.
+- Desired improvements.
+- Technical comfort level.
+- Accessibility considerations.
+
+**Persona 2: Local Business Sponsor**
+
+Include the same fields.
+
+Personas must be clearly labeled as provisional working hypotheses.
+
+Avoid stereotypes or unsupported demographic assumptions.
+
+## Task 9 — Write User Stories
+
+Create `07-user-stories.md`.
+
+Write at least eight user stories in this format:
+
+"As a [user], I want [capability], so that [business benefit]."
+
+Include these candidate capabilities:
+
+US-01: Add property listings.
+
+US-02: Validate required listing information.
+
+US-03: Edit existing listings.
+
+US-04: Search available properties.
+
+US-05: View detailed property information.
+
+US-06: Submit sponsor advertisements.
+
+US-07: Review and approve submitted content.
+
+US-08: Access the platform on mobile devices.
+
+For each user story, provide:
+
+- Unique ID.
+- User persona.
+- User story.
+- Priority: High, Medium, or Low.
+- Estimated effort: Small, Medium, or Large.
+- Proposed owner or "Unassigned".
+- Source or supporting observation.
+- Assumptions requiring confirmation.
+
+For every high-priority user story, write at least two testable Gherkin acceptance scenarios:
+
+**Scenario A: Happy Path**
+
+Given / When / Then for successful operation.
+
+**Scenario B: Failure or Edge Case**
+
+Given / When / Then for missing information, validation failures, or unavailable services.
+
+Make the acceptance criteria specific, technically reasonable, and testable.
+
+## Task 10 — Week 8 MVP Planning
+
+Create `08-mvp-plan.md`.
+
+Propose a realistic Week 8 Minimum Viable Product.
+
+Prioritize core functionality:
+
+- Basic homepage.
+- Property listing display.
+- Listing details.
+- Listing submission and validation.
+- Basic content approval.
+- Responsive layout.
+
+Categorize features into:
+
+- MVP.
+- Post-MVP.
+- Requires stakeholder confirmation.
+
+Include effort estimates and proposed task ownership.
+
+Do not assume the Week 8 scope is finalized.
+
+## Task 11 — Content Approval Workflow
+
+Create `09-content-approval.md`.
+
+Document the proposed process:
+
+1. Agent or sponsor submits content.
+2. System performs basic validation.
+3. Content enters Pending Review.
+4. Authorized administrator reviews content.
+5. Administrator approves, rejects, or requests corrections.
+6. Approved content becomes publicly visible.
+7. Rejected content remains unpublished.
+
+Describe how this applies to both property listings and sponsor advertising claims.
+
+Include potential failure conditions and questions that require stakeholder confirmation.
+
+Provide a simple Mermaid flowchart in Markdown.
+
+## Task 12 — AI Provenance Log
+
+Create `10-ai-provenance-log.md`.
+
+Record:
+- Tool name.
+- Prompt.
+- Purpose.
+- Useful generated output.
+- Rejected or modified output.
+- Human verification.
+- Related file or commit.
+- Verification status.
+
+Document the use of Codex in generating the initial Lab 4 materials.
+
+Include placeholders for actual ChatGPT, Gemini, and Google AI Studio interactions that have not occurred.
+
+Do not manufacture tool usage, verification results, or stakeholder evidence.
+
+## Task 13 — GitHub Project Board
+
+If authenticated GitHub API or CLI access is available, create a GitHub Project named:
+
+`CIS 3610 — Team Beacon Capstone`
+
+Configure these five status options:
+
+- Backlog
+- Ready
+- In Progress
+- Review
+- Done
+
+Create or link project items corresponding to the user stories.
+
+Use the effort estimates and priorities from the requirements document.
+
+Assign real GitHub users only if their usernames and permissions are known.
+
+If project creation is not possible, provide step-by-step instructions and any appropriate commands to complete it manually.
+
+Do not claim the board exists unless GitHub confirms creation.
+
+## Task 14 — GitHub Issues
+
+If GitHub access is authenticated and the repository is confirmed, create:
+
+**Planning issue**
+
+Title: `Lab 4: Discovery and MVP Planning`
+
+Include:
+- Discovery deliverables.
+- Requirements.
+- Outstanding uncertainties.
+- Documentation checklist.
+- Relevant file links.
+- Proposed owners.
+
+**Feature issue**
+
+Title: `REQ-001: Add validation to property listing submission`
+
+User story:
+
+"As a real estate listing agent, I want to receive validation messages when required property information is missing or invalid, so that I can correct errors before submitting a listing."
+
+Include two Gherkin scenarios:
+
+1. Successful listing validation and submission.
+2. Missing listing price preventing submission.
+
+Include:
+- Proposed branch: `feature/req-001-listing-validation`
+- Labels: `enhancement`, `validation`, `ui`
+- Proposed milestone: `Week 8 MVP`
+- Assignee: my account, if identifiable and appropriate
+- Two business or technical confirmation gaps.
+
+Create the labels and milestone if permissions allow and no suitable existing equivalents exist.
+
+Do not duplicate existing issues.
+
+Record actual issue URLs and issue numbers in the relevant documentation.
+
+If authenticated access is unavailable, prepare the issue contents locally instead.
+
+## Task 15 — Templates and Submission Checklist
+
+Create reusable GitHub issue templates for future requirements.
+
+Create a pull request template containing:
+
+- Summary.
+- Related issue.
+- Changes made.
+- Test evidence.
+- AI assistance disclosure.
+- Outstanding questions.
+
+Create `11-submission-checklist.md`.
+
+Include:
+- Repository URL.
+- Pull request URL, if created.
+- GitHub planning issue URL.
+- Feature issue URL.
+- Project board URL.
+- AI log location.
+- Test evidence location.
+- Individual contribution statement.
+- Deployment URL, only if applicable.
+
+Use `Not yet created` or `Not applicable` rather than inventing URLs.
+
+## Task 16 — Git Commits and Final Review
+
+Review the generated documents for:
+
+- Internal consistency.
+- Missing requirements.
+- Unsupported stakeholder claims.
+- Incorrect issue links.
+- Contradictory acceptance criteria.
+- Missing documentation.
+- Unclear assumptions.
+- Privacy or ethical outreach concerns.
+
+Run any relevant lightweight validation checks.
+
+Commit the documentation with a descriptive message, such as:
+
+`docs: initialize Lab 4 discovery and requirements package`
+
+Do not force-push, rewrite existing history, or overwrite unrelated work.
+
+If a suitable remote repository has been confirmed and pushing is authorized, push the changes.
+
+If that is not possible, leave the work committed locally and explain the remaining steps.
+
+## Final Deliverable
+
+When finished, provide a report containing:
+
+1. Files and folders created.
+2. Documents completed.
+3. Git repository and remote status.
+4. Actual GitHub repository URL, if available.
+5. Actual GitHub issue URLs and issue numbers, if created.
+6. GitHub Project board URL, if created.
+7. Outstanding instructor or stakeholder questions.
+8. Any actions requiring manual completion.
+9. Exact steps I should take to submit the assignment in Canvas.
+
+Do not fabricate successful GitHub operations, approval, interviews, service integrations, or test results.
+
+**Working style:** Proceed autonomously with safe, non-destructive repository and documentation tasks. Do not stop to ask questions about minor formatting or organizational decisions. Use reasonable defaults and explain them. Request confirmation before taking external actions that could be inappropriate for the existing repository or team workflow.
+
+The goal is to complete as much of Lab 4 as possible while keeping the work transparent, academically defensible, and ready for review during the upcoming class discussion.
