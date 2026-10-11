@@ -11,4 +11,6 @@ GitHub confirmation: private repository and write permission; no existing issues
 
 Follow-up CLI verification confirmed milestone #1 on issue #2, private Project Atomic-Rose/1, exactly five requested Status options, nine Project items, all eight story priorities/efforts matching the requirements, and Backlog status for every item. GitHub confirmed Board layout but returned no grouping field. Set Group by Status manually. Direct repository linking was rejected due to different owners; both repository issues were successfully added. These later confirmations supersede the initial absence of Project and milestone above.
 
+Repository-owned copy: GitHub confirmed private Project byteboss22/1 links to byteboss22/cis3610-capstone-beacon and the authenticated account can update it. Seven draft stories and their fields copied successfully. Existing issues #1 and #2 were added to restore nine total items; issue #2 retains High priority, Medium effort, and the Week 8 milestone. This copy is now the active team Project. Board layout is confirmed; grouping remains unset in the API response.
+
 Mermaid was inspected as source; graphical rendering was not executed. No application exists, so Gherkin scenarios are proposed acceptance criteria, not passing functional tests. Human academic/content verification remains pending.

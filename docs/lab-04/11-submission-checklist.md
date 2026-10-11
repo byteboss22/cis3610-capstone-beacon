@@ -7,7 +7,7 @@ Purpose: prepare a transparent class submission; completed drafts still require 
 | Pull request URL | Not yet created |
 | Planning issue | [#1](https://github.com/byteboss22/cis3610-capstone-beacon/issues/1) |
 | Feature issue | [#2](https://github.com/byteboss22/cis3610-capstone-beacon/issues/2) |
-| Project board URL | [Capstone Project](https://github.com/users/Atomic-Rose/projects/1), private; nine items configured |
+| Project board URL | [Capstone Project](https://github.com/users/byteboss22/projects/1), private, linked to the repository; nine items configured |
 | Week 8 MVP milestone | [Milestone #1](https://github.com/byteboss22/cis3610-capstone-beacon/milestone/1), attached to issue #2 |
 | AI log | [10-ai-provenance-log.md](10-ai-provenance-log.md) |
 | Test evidence | [validation-evidence.md](validation-evidence.md); documentation checks only |

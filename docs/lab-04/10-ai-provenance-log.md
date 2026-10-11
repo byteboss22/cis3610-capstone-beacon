@@ -15,6 +15,9 @@ Purpose: disclose actual assistance and distinguish generated drafts from eviden
 
 GitHub connector confirmed private visibility, write permission, issue #1, issue #2, labels, and feature assignee. It is an API connector, not additional stakeholder evidence. CLI authentication initially failed. After the user authenticated and approved project scope, Codex used gh to create milestone #1 and private Project Atomic-Rose/1, configure five statuses and Priority/Effort fields, add nine items, and verify the results. Board layout is confirmed; grouping by Status requires a manual UI step. Direct repository linking was rejected because the owners differ, while adding repository issues succeeded. No connected browser was available for the grouping step.
 
+## Repository-owned Project follow-up
+The user reported copying the Project to byteboss22 and selecting the team repository as default, then supplied https://github.com/users/byteboss22/projects/1. Codex verified private visibility, repository linkage, update permission, seven copied drafts, and their existing priority/effort values. Codex added existing issues #1 and #2, set their Backlog status and US-02 High/Medium fields, and updated documentation to the active Project URL. The original Project was preserved. Board layout is confirmed; Status grouping remains a manual step.
+
 ## Other interactions — not executed
 | Tool | Prompt | Purpose | Useful output | Rejected/modified output | Human verification | Related file | Status |
 |---|---|---|---|---|---|---|---|
