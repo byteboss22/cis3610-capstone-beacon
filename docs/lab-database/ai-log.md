@@ -11,7 +11,7 @@ Session date: October 17, 2026 (America/Los_Angeles).
 - **Verification actually performed:** Exact migration/seed applied to a fresh PGlite PostgreSQL instance; role-scoped SQL denials; Node HTTP and mock Supabase adapter tests; browser DOM loading/empty/error/retry/text rendering tests; npm dependency audit; local reachable-history and working-tree pattern scan; `.env.local` ignore check. See [verification.md](verification.md).
 - **Limitations:** Tests use a minimal Auth shim and mock HTTP provider; no live Supabase project was available. Docker exists but its daemon was unavailable. AI Studio access was attempted through computer-use tooling; Chrome was unavailable and the browser inventory was empty, so no external AI prompt was sent.
 - **Human verification:** Pending. Student must review schema, policies, outputs and tests and identify their own changes before submission.
-- **Commit:** Initial implementation commit on `feature/database`; locate with `git log --oneline --grep='implement database lab'`. The commit cannot contain its own hash. Add subsequent human-review/fix commit IDs below.
+- **Commit:** `774ff0b` on `feature/database`; draft PR https://github.com/byteboss22/cis3610-capstone-beacon/pull/3. Add subsequent human-review/fix commit IDs below.
 
 ## Separate model reviews — pending, not executed
 

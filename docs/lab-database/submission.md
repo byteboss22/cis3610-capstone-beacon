@@ -2,7 +2,8 @@
 
 - Repository: https://github.com/byteboss22/cis3610-capstone-beacon
 - Branch: `feature/database`
-- Pull request: pending; use the draft database implementation PR when available.
+- Pull request: https://github.com/byteboss22/cis3610-capstone-beacon/pull/3 (draft; external verification still pending).
+- Implementation commit: `774ff0b` (`feat: implement database lab with RLS and server routes`).
 - Deployment or demonstration URL: pending; local development URL is not a public deployment.
 - Test evidence: `docs/lab-database/test-output.txt`, `security-output.txt`, `verification.md`; rerun `npm test` and `npm run scan:secrets` at the submitted commit.
 - AI evidence: `docs/lab-database/ai-log.md`. Codex work is recorded; separate ChatGPT and Gemini reviews and human verification remain pending.

@@ -29,6 +29,7 @@ The executable suite covers representative allow/deny paths in this matrix; it i
 - HTTP tests: public read; authenticated POST/PATCH; token rejection; strict validation; oversized/malformed JSON; hidden static files; safe errors; non-admin denial; verified admin approval.
 - Supabase SDK HTTP adapter test: explicit selects, approved read filter, read limit, caller JWT forwarding, owner/draft filters, structured mutation values and dedicated service credentials for admin calls.
 - UI DOM tests: loading, empty, error/retry, rendered rent and HTML-like database content displayed as text.
+- Scanner self-tests: blank examples allowed, populated credential assignment detected/redacted, synthetic token detected in deleted Git history.
 - Pattern scan of nonignored files and reachable Git blobs; blank `.env.local` is ignored. Dependency audit reports zero vulnerabilities at execution time.
 
 No genuine user token or service credential was used. Passing these tests is not a claim of live Auth/REST configuration testing or a production security certification.
