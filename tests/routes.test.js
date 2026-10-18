@@ -11,6 +11,8 @@ async function fixture(t, overrides = {}) {
   const database = {
     verifyUser: async token => token === 'valid-test-token' ? { id: owner, app_metadata: {}, user_metadata: { role: 'admin' } } : null,
     listings: async () => ({ data: [], error: null }),
+    sponsors: async () => ({ data: [], error: null }),
+    listing: async () => ({ data: { id, ...fields } }),
     createListing: async (...args) => { calls.push(['create', ...args]); return { data: { id, ...fields } }; },
     updateDraft: async (...args) => { calls.push(['update', ...args]); return { data: { id, ...fields } }; },
     approveListing: async (...args) => { calls.push(['admin', ...args]); return { data: { id, approved: true } }; },
@@ -27,14 +29,14 @@ async function fixture(t, overrides = {}) {
     }),
   };
 }
-test('public GET succeeds without authentication; static allowlist protects server configuration', async t => {
+test('public GET succeeds without authentication; API handler does not serve repository files', async t => {
   const { request } = await fixture(t);
   const response = await request('/api/listings', 'GET', undefined, null);
   assert.equal(response.status, 200);
   assert.deepEqual(await response.json(), { listings: [] });
   assert.match(response.headers.get('content-security-policy'), /frame-ancestors 'none'/);
   for (const path of ['/.env.local', '/server/database.js', '/supabase/seed.sql']) assert.equal((await request(path)).status, 404);
-  assert.equal((await request('/')).status, 200);
+  assert.equal((await request('/')).status, 404);
 });
 test('POST uses verified identity and PATCH passes validated draft fields', async t => {
   const { request, calls } = await fixture(t);
@@ -84,5 +86,23 @@ test('upstream errors and thrown exceptions never expose details', async t => {
   for (const response of [await request('/api/listings'), await request('/api/listings', 'POST', fields)]) {
     assert.equal(response.status, 503);
     assert.doesNotMatch(await response.text(), /private/);
+  }
+});
+
+test('public detail and sponsors routes use safe projections and hide unavailable listings', async t => {
+  const { request } = await fixture(t);
+  assert.equal((await request(`/api/listings/${id}`, 'GET', undefined, null)).status, 200);
+  assert.deepEqual(await (await request('/api/sponsors', 'GET', undefined, null)).json(), { sponsors: [] });
+  const hidden = await fixture(t, { listing: async () => ({ data: null }) });
+  assert.equal((await hidden.request(`/api/listings/${id}`)).status, 404);
+  assert.equal((await request('/api/listings/not-a-uuid')).status, 400);
+});
+test('presentation inputs are validated without widening ownership or approval permissions', async t => {
+  const { request, calls } = await fixture(t);
+  const display = { bedrooms: 2, bathrooms: 1.5, property_type: 'apartment', image_url: '/properties/brookhaven-apartment.svg' };
+  assert.equal((await request(`/api/listings/${id}`, 'PATCH', display)).status, 200);
+  assert.deepEqual(calls[0].at(-1), display);
+  for (const fields of [{ bathrooms: 1.25 }, { bedrooms: -1 }, { image_url: 'https://example.invalid/image.svg' }, { state: 'California' }, { amenities: ['invalid'] }, { property_type: 'castle' }, { ...display, approved: true }]) {
+    assert.equal((await request(`/api/listings/${id}`, 'PATCH', fields)).status, 400);
   }
 });

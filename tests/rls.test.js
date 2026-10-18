@@ -9,7 +9,8 @@ const approved = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
 const draft = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb';
 const sponsor = 'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee';
 
-test('migration rebuild and PostgreSQL role/RLS denial evidence', async t => {
+for (const presentation of [false, true]) {
+test(`migration rebuild and PostgreSQL role/RLS denial evidence (${presentation ? '0001 + 0002' : '0001'})`, async t => {
   const db = new PGlite();
   t.after(() => db.close());
   // Harness ONLY: Supabase supplies these roles, auth.users and auth.uid in deployment.
@@ -27,6 +28,7 @@ test('migration rebuild and PostgreSQL role/RLS denial evidence', async t => {
   const migration = await readFile(new URL('../supabase/migrations/0001_beacon.sql', import.meta.url), 'utf8');
   await db.exec(migration);
   await db.exec(await readFile(new URL('../supabase/seed.sql', import.meta.url), 'utf8'));
+  if (presentation) await db.exec(await readFile(new URL('../supabase/migrations/0002_listing_presentation.sql', import.meta.url), 'utf8'));
   async function as(role, uid, sql) {
     await db.exec('begin');
     try {
@@ -91,6 +93,22 @@ test('migration rebuild and PostgreSQL role/RLS denial evidence', async t => {
     await denied('authenticated', other, "update public.inquiries set message = 'Attack'", '42501');
     await denied('authenticated', owner, `insert into public.property_sponsors (property_id,sponsor_id) values ('${draft}','${sponsor}')`, '42501');
   });
+  if (presentation) await t.test('new display columns inherit owner-only writes and enforce checks', async () => {
+    assert.equal((await as('authenticated', owner, `update public.properties set bedrooms = 2, property_type = 'apartment' where id = '${draft}' returning id`)).length, 1);
+    assert.equal((await as('authenticated', other, `update public.properties set bedrooms = 2 where id = '${draft}' returning id`)).length, 0);
+    assert.equal((await as('authenticated', owner, `update public.properties set bedrooms = 2 where id = '${approved}' returning id`)).length, 0);
+    for (const field of ["bedrooms = -1", "bathrooms = 1.25", "bathrooms = 1.01", "state = 'California'", "property_type = 'castle'", "image_url = 'https://example.invalid/image.svg'", "amenities = array['unlisted']"]) {
+      await denied('authenticated', owner, `update public.properties set ${field} where id = '${draft}'`, '23514');
+    }
+    const uiSeed = await readFile(new URL('../supabase/seed-ui.sql', import.meta.url), 'utf8');
+    await db.exec(uiSeed);
+    await db.exec(uiSeed); // Re-running presentation fixtures must not duplicate/overwrite data.
+    assert.equal(await count('anon', null, 'properties'), 6);
+    assert.equal(await count('anon', null, 'sponsors'), 6);
+    assert.equal(await count('anon', null, 'property_sponsors'), 10);
+    // Restore baseline for the remaining tests (only fixed fictional presentation IDs).
+    await db.exec("delete from public.properties where id::text like '10000000-%'; delete from public.sponsors where id::text like '20000000-%';");
+  });
   await t.test('service role bypass is explicit and foreign keys prevent orphans', async () => {
     assert.equal(await count('service_role', null, 'properties'), 3);
     assert.equal(await count('service_role', null, 'inquiries'), 1);
@@ -104,3 +122,5 @@ test('migration rebuild and PostgreSQL role/RLS denial evidence', async t => {
     } finally { await db.exec('rollback'); }
   });
 });
+
+}

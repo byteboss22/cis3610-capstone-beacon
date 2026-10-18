@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Single-story home with a front porch and trees">
+  <rect width="800" height="600" fill="#cde8f3"/>
+  <circle cx="658" cy="105" r="52" fill="#fff4ba"/>
+  <rect y="414" width="800" height="186" fill="#9ac18c"/>
+  <path d="M125 300 400 140l275 160v178H125Z" fill="#e8dfc9"/>
+  <path d="m95 302 305-180 305 180-19 32-286-166-286 166Z" fill="#805d4a"/>
+  <rect x="175" y="316" width="450" height="155" fill="#f4ead6"/>
+  <rect x="196" y="322" width="142" height="105" fill="#a7d1dd" stroke="#fffaf0" stroke-width="12"/>
+  <rect x="462" y="322" width="142" height="105" fill="#a7d1dd" stroke="#fffaf0" stroke-width="12"/>
+  <rect x="366" y="348" width="68" height="123" fill="#7e5c47"/>
+  <circle cx="419" cy="411" r="5" fill="#f5d892"/>
+  <path d="M156 470h488v20H156Z" fill="#c3ab8d"/>
+  <path d="M335 600 365 490h70l30 110Z" fill="#d7c9b4"/>
+  <rect x="55" y="274" width="24" height="214" fill="#725942"/>
+  <circle cx="67" cy="255" r="91" fill="#679d6e"/>
+  <rect x="728" y="300" width="20" height="184" fill="#725942"/>
+  <circle cx="738" cy="281" r="72" fill="#75a877"/>
+</svg>

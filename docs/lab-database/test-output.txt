@@ -1,35 +1,54 @@
 
 > beacon-capstone@0.1.0 test
-> node --test tests/*.test.js
+> node --import tsx --test tests/*.test.js tests/*.test.tsx
 
-✔ Supabase HTTP adapter preserves caller tokens, selected columns and ownership filters (29.485708ms)
-▶ migration rebuild and PostgreSQL role/RLS denial evidence
-  ✔ all five exposed tables enable and force RLS (0.7215ms)
-  ✔ anonymous sees approved listing, active sponsor and eligible partnership only (5.052542ms)
-  ✔ owner sees own draft and updates it; approved content is immutable (4.814709ms)
-  ✔ other user cannot read or edit another owner draft or inactive sponsor (2.226708ms)
-  ✔ owners cannot self-approve, activate sponsors, transfer ownership or delete (2.961541ms)
-  ✔ owner inserts draft only; spoofed ownership, approval and invalid values fail (3.132166ms)
-  ✔ private inquiries restricted to sender; only approved properties accept inquiries (4.446083ms)
-  ✔ service role bypass is explicit and foreign keys prevent orphans (4.067ms)
-✔ migration rebuild and PostgreSQL role/RLS denial evidence (446.220209ms)
-✔ public GET succeeds without authentication; static allowlist protects server configuration (22.12525ms)
-✔ POST uses verified identity and PATCH passes validated draft fields (8.675417ms)
-✔ unauthenticated and invalid tokens cannot write (2.237ms)
-✔ strict validation blocks ownership spoofing, self-approval, invalid values and malformed input (18.161084ms)
-✔ uneditable or nonexistent drafts return the same 404 (1.346958ms)
-✔ administrator authorization ignores client-editable user_metadata (0.882917ms)
-✔ verified administrator can approve through dedicated route (1.435584ms)
-✔ upstream errors and thrown exceptions never expose details (1.554792ms)
-✔ secret scan accepts empty env examples and flags/redacts populated credential assignments (179.281542ms)
-✔ secret scan detects synthetic token in history after working-tree deletion (196.26525ms)
-✔ UI announces loading then empty and clears busy state (50.975875ms)
-✔ UI handles failure and retry, rendering database content as text (17.421666ms)
-ℹ tests 22
+✔ Supabase HTTP adapter preserves caller tokens, selected columns and ownership filters (30.5295ms)
+✔ presentation reads keep approval filters and fall back only for missing columns (14.52475ms)
+✔ restored UI shows loading, Supabase cards, rent and active sponsor content (65.271125ms)
+✔ search combines property type, bedroom count and monthly rent; reports no matches (19.957166ms)
+✔ empty database states and missing presentation fields do not fabricate attributes (5.630958ms)
+✔ error and retry states recover, and listing text is never interpreted as HTML (8.651792ms)
+✔ unavailable sponsors do not hide properties and can be retried independently (13.9765ms)
+✔ detail page renders description and amenities and handles unpublished records safely (9.232417ms)
+✔ response validation rejects unsafe image and sponsor URL protocols (0.253875ms)
+▶ migration rebuild and PostgreSQL role/RLS denial evidence (0001)
+  ✔ all five exposed tables enable and force RLS (0.769417ms)
+  ✔ anonymous sees approved listing, active sponsor and eligible partnership only (5.5405ms)
+  ✔ owner sees own draft and updates it; approved content is immutable (6.225959ms)
+  ✔ other user cannot read or edit another owner draft or inactive sponsor (3.013334ms)
+  ✔ owners cannot self-approve, activate sponsors, transfer ownership or delete (3.325375ms)
+  ✔ owner inserts draft only; spoofed ownership, approval and invalid values fail (3.393334ms)
+  ✔ private inquiries restricted to sender; only approved properties accept inquiries (6.343542ms)
+  ✔ service role bypass is explicit and foreign keys prevent orphans (4.242666ms)
+✔ migration rebuild and PostgreSQL role/RLS denial evidence (0001) (453.78425ms)
+▶ migration rebuild and PostgreSQL role/RLS denial evidence (0001 + 0002)
+  ✔ all five exposed tables enable and force RLS (0.503834ms)
+  ✔ anonymous sees approved listing, active sponsor and eligible partnership only (3.61775ms)
+  ✔ owner sees own draft and updates it; approved content is immutable (2.867292ms)
+  ✔ other user cannot read or edit another owner draft or inactive sponsor (2.264333ms)
+  ✔ owners cannot self-approve, activate sponsors, transfer ownership or delete (2.4875ms)
+  ✔ owner inserts draft only; spoofed ownership, approval and invalid values fail (2.57375ms)
+  ✔ private inquiries restricted to sender; only approved properties accept inquiries (5.188084ms)
+  ✔ new display columns inherit owner-only writes and enforce checks (11.143583ms)
+  ✔ service role bypass is explicit and foreign keys prevent orphans (3.115125ms)
+✔ migration rebuild and PostgreSQL role/RLS denial evidence (0001 + 0002) (266.669583ms)
+✔ public GET succeeds without authentication; API handler does not serve repository files (21.944334ms)
+✔ POST uses verified identity and PATCH passes validated draft fields (8.534292ms)
+✔ unauthenticated and invalid tokens cannot write (2.642667ms)
+✔ strict validation blocks ownership spoofing, self-approval, invalid values and malformed input (18.631125ms)
+✔ uneditable or nonexistent drafts return the same 404 (1.295833ms)
+✔ administrator authorization ignores client-editable user_metadata (0.827042ms)
+✔ verified administrator can approve through dedicated route (1.38625ms)
+✔ upstream errors and thrown exceptions never expose details (1.5425ms)
+✔ public detail and sponsors routes use safe projections and hide unavailable listings (4.298041ms)
+✔ presentation inputs are validated without widening ownership or approval permissions (11.825958ms)
+✔ secret scan accepts empty env examples and flags/redacts populated credential assignments (183.46725ms)
+✔ secret scan detects synthetic token in history after working-tree deletion (188.689375ms)
+ℹ tests 40
 ℹ suites 0
-ℹ pass 22
+ℹ pass 40
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 506.401291
+ℹ duration_ms 836.722541

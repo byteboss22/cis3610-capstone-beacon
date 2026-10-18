@@ -11,3 +11,7 @@ Thumbs.db
 ~$*
 node_modules/
 coverage/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts

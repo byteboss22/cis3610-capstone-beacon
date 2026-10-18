@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title description">
+  <title id="title">Pine Avenue Duplex</title>
+  <desc id="description">A two-story duplex with two front doors and a shared green yard.</desc>
+  <rect width="800" height="600" fill="#dbeafe"/>
+  <rect y="430" width="800" height="170" fill="#bbf7d0"/>
+  <rect x="150" y="180" width="500" height="290" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="12"/>
+  <path d="M110 200 400 70l290 130" fill="#475569" stroke="#334155" stroke-width="12"/>
+  <rect x="235" y="300" width="85" height="170" fill="#92400e"/>
+  <rect x="480" y="300" width="85" height="170" fill="#92400e"/>
+  <g fill="#bfdbfe" stroke="#334155" stroke-width="8">
+    <rect x="340" y="245" width="120" height="95"/>
+    <rect x="180" y="235" width="90" height="75"/>
+    <rect x="530" y="235" width="90" height="75"/>
+  </g>
+</svg>

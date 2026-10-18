@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Sunlit Garden Apartment</title>
+  <desc id="desc">A two-story apartment building beside a garden walkway</desc>
+  <rect width="800" height="600" fill="#dbeafe"/>
+  <rect y="410" width="800" height="190" fill="#86a96f"/>
+  <circle cx="665" cy="105" r="54" fill="#fde68a"/>
+  <path d="M140 245 400 100l260 145v240H140z" fill="#f8fafc" stroke="#334155" stroke-width="12"/>
+  <path d="m118 250 282-158 282 158" fill="none" stroke="#334155" stroke-linecap="round" stroke-linejoin="round" stroke-width="22"/>
+  <rect x="205" y="285" width="105" height="92" rx="4" fill="#93c5fd" stroke="#334155" stroke-width="9"/>
+  <rect x="490" y="285" width="105" height="92" rx="4" fill="#93c5fd" stroke="#334155" stroke-width="9"/>
+  <rect x="348" y="330" width="104" height="155" fill="#c08457" stroke="#334155" stroke-width="9"/>
+  <path d="M400 600V485" stroke="#d6d3d1" stroke-width="90"/>
+  <circle cx="115" cy="440" r="48" fill="#3f7652"/>
+  <circle cx="700" cy="450" r="58" fill="#3f7652"/>
+</svg>

@@ -1,7 +1,8 @@
-import { readFile } from 'node:fs/promises';
 import { z } from 'zod';
+import { presentationFields } from './listing-fields.js';
 
 const fields = {
+  ...presentationFields,
   title: z.string().trim().min(1).max(120),
   description: z.string().trim().min(1).max(2000),
   city: z.string().trim().min(1).max(100),
@@ -11,11 +12,6 @@ const listing = z.strictObject(fields);
 const patch = listing.partial().refine(value => Object.keys(value).length > 0);
 const approval = z.strictObject({ approved: z.boolean() });
 const uuid = z.uuid();
-const assets = new Map([
-  ['/', ['index.html', 'text/html; charset=utf-8']],
-  ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
-  ['/style.css', ['style.css', 'text/css; charset=utf-8']],
-]);
 class HttpError extends Error {
   constructor(status, message) { super(message); this.status = status; }
 }
@@ -52,16 +48,20 @@ export function createApp({ database }) {
     };
     try {
       const path = new URL(req.url, 'http://localhost').pathname;
-      if (req.method === 'GET' && assets.has(path)) {
-        const [file, mime] = assets.get(path);
-        const content = await readFile(new URL(`../public/${file}`, import.meta.url));
-        res.writeHead(200, { 'Content-Type': mime }); res.end(content); return;
-      }
       if (path === '/api/listings' && req.method === 'GET') {
         json(200, { listings: result(await database.listings()) }); return;
       }
+      if (path === '/api/sponsors' && req.method === 'GET') {
+        json(200, { sponsors: result(await database.sponsors()) }); return;
+      }
       const edit = path.match(/^\/api\/listings\/([^/]+)$/);
       const admin = path.match(/^\/api\/admin\/listings\/([^/]+)$/);
+      if (edit && req.method === 'GET') {
+        if (!uuid.safeParse(edit[1]).success) throw new HttpError(400, 'Invalid listing ID.');
+        const data = result(await database.listing(edit[1]));
+        if (!data) throw new HttpError(404, 'Listing not found.');
+        json(200, { listing: data }); return;
+      }
       if ((path === '/api/listings' && req.method === 'POST') || ((edit || admin) && req.method === 'PATCH')) {
         const token = req.headers.authorization?.match(/^Bearer (\S+)$/)?.[1];
         if (!token) throw new HttpError(401, 'Authentication required.');

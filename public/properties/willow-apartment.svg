@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Brick apartment building with balconies">
+  <rect width="800" height="600" fill="#d8eaf1"/>
+  <rect y="476" width="800" height="124" fill="#a7bf99"/>
+  <rect x="150" y="104" width="500" height="402" fill="#b87862"/>
+  <rect x="135" y="91" width="530" height="25" fill="#7e5348"/>
+  <path d="M150 239h500M150 370h500" stroke="#d49b83" stroke-width="8"/>
+  <g fill="#acd4df" stroke="#f2e5d6" stroke-width="12">
+    <rect x="205" y="141" width="105" height="79"/><rect x="348" y="141" width="105" height="79"/><rect x="491" y="141" width="105" height="79"/>
+    <rect x="205" y="270" width="105" height="79"/><rect x="348" y="270" width="105" height="79"/><rect x="491" y="270" width="105" height="79"/>
+  </g>
+  <g fill="#6c514b">
+    <rect x="190" y="220" width="135" height="12"/><rect x="333" y="220" width="135" height="12"/><rect x="476" y="220" width="135" height="12"/>
+    <rect x="190" y="349" width="135" height="12"/><rect x="333" y="349" width="135" height="12"/><rect x="476" y="349" width="135" height="12"/>
+  </g>
+  <g stroke="#6c514b" stroke-width="6">
+    <path d="M199 232v21m116-21v21m27-21v21m116-21v21m27-21v21m116-21v21M199 361v21m116-21v21m27-21v21m116-21v21m27-21v21m116-21v21"/>
+  </g>
+  <rect x="356" y="393" width="88" height="113" fill="#66544b"/>
+  <rect x="367" y="407" width="66" height="57" fill="#acd4df"/>
+  <path d="M321 600h158l-35-94h-88Z" fill="#c9c2b1"/>
+  <circle cx="83" cy="429" r="62" fill="#72a777"/><circle cx="716" cy="418" r="66" fill="#679b70"/>
+</svg>

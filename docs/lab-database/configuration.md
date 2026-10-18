@@ -9,7 +9,7 @@
 | `SUPABASE_SERVICE_ROLE_KEY` | `.env.local`, server process only | Optional administrator approval; never `NEXT_PUBLIC_`, `VITE_`, or another public prefix |
 | `PORT` | `.env.local`, server process | Loopback development HTTP port |
 
-All example credential values are blank. `.env.local` was copied from the example and `git check-ignore .env.local` confirms it is ignored. The UI receives no Supabase configuration or keys. The server serves exactly three public asset paths and never serves repository files. Restart `npm start` after local configuration changes.
+All example credential values are blank. `.env.local` was copied from the example and `git check-ignore .env.local` confirms it is ignored. The UI receives no Supabase configuration or keys. Next.js serves the page and SVG illustrations; `src/pages/api/[...path].ts` is a server-only API entry point. No client component imports the database adapter. `.env.local`, server source and migration files are not public assets; live HTTP checks verify those paths return 404. Restart `npm start` after local configuration changes.
 
 ## Apply numbered migration to Supabase development
 
@@ -18,9 +18,12 @@ Create/select a disposable development project in your own Supabase account. Use
 ```sh
 psql 'service=beacon-dev' -X -v ON_ERROR_STOP=1 -f supabase/migrations/0001_beacon.sql
 psql 'service=beacon-dev' -X -v ON_ERROR_STOP=1 -f supabase/seed.sql
+psql 'service=beacon-dev' -X -v ON_ERROR_STOP=1 -f supabase/migrations/0002_listing_presentation.sql
+# Optional fictional presentation records:
+psql 'service=beacon-dev' -X -v ON_ERROR_STOP=1 -f supabase/seed-ui.sql
 ```
 
-Apply `0001` once to a clean schema. It is transactional and intentionally fails if already applied; record the migration version in project release notes. Future changes require a new numbered migration, never edits to already-applied SQL. A new disposable project plus the two commands demonstrates a clean rebuild. Supabase provides `auth.users`, `auth.uid()`, `anon`, `authenticated`, and `service_role` automatically; do not deploy the test harness's Auth shim.
+Apply `0001` once to a clean schema. It is transactional and intentionally fails if already applied; record the migration version in project release notes. Future changes require a new numbered migration, never edits to already-applied SQL. A new disposable project plus these commands demonstrates a clean rebuild. Supabase provides `auth.users`, `auth.uid()`, `anon`, `authenticated`, and `service_role` automatically; do not deploy the test harness's Auth shim.
 
 The seed inserts fictional Auth identifiers without passwords and cannot be used to sign in. To exercise routes, create development test users through Supabase Auth normally. POST will create their minimal profile. Do not enable untrusted writes to Auth metadata or copy real customer data into fixtures.
 
@@ -58,3 +61,11 @@ npm audit --audit-level=high
 ```
 
 Review diffs in a private local terminal; never paste secret values into evidence. If a real credential was committed, rotate/revoke it first and arrange history cleanup before sharing. No real credential was supplied during this implementation.
+
+## Existing development project upgrade
+
+If `0001` and `seed.sql` already succeeded, run only `0002_listing_presentation.sql` as a new SQL Editor query. Then optionally run `seed-ui.sql` as a separate query to add five illustrated listings and five sponsors from the earlier assignment. The seed uses fixed fictional UUIDs and inserts missing fixtures only. Do not rerun `0001` or the initial seed on that project. See [interface integration](interface-integration.md).
+
+The read routes try the expanded explicit column list and fall back to the original explicit list only for missing-column/schema-cache errors. Other errors stay errors. Both reads always filter approved/active records and use anonymous privileges. Thus a project on `0001` remains browsable while the upgrade is pending; missing details are hidden instead of fabricated. Writes using presentation fields require `0002`.
+
+`SUPABASE_ANON_KEY` accepts either the legacy anon key or the current publishable key. The optional administrator variable can hold the service-role/secret credential; it remains server-only. For this interface upgrade no new credential is required.
