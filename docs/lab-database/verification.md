@@ -41,7 +41,8 @@ The local automated suite uses no genuine credentials. The subsequent live HTTP/
 | Initial development migration and seed | Student confirmed; live fixture reads verified | `0001` and initial fixtures; October 17, 2026 |
 | Hosted presentation migration and optional seed | Pending | `0002` and optional `seed-ui.sql` |
 | Actual anonymous Data API read of public/draft fixtures | Passed | 1 public listing/active sponsor/eligible partnership; draft zero rows; profiles/inquiries SQLSTATE 42501 |
-| Real owner and second-user token negative tests | Pending | Redacted HTTP status and row counts; repeat direct Data API attempts |
+| Real second-user token negative tests | Passed | Eight actual Auth/Data API/Beacon checks in rls-live-evidence.json |
+| Live owner-specific operations | Pending | Local SQL owner tests pass; no live owner mutation claimed |
 | Trusted administrator route approval | Pending | Non-admin 403, verified-admin 200; public GET changes |
 | Browser visual/manual review of restored interface | Pending | React DOM states and live Next HTTP/CSP checks pass; student should inspect the actual browser layout |
 | Separate ChatGPT and Gemini critique and human DDL review | Pending | Actual output, accepted/rejected suggestions, tests, student commit |
@@ -57,3 +58,15 @@ Without an Authorization header, GET of the known draft through Beacon returns 4
 ## Live authenticated test preparation
 
 See [testing without a sign-in UI](testing-without-sign-in-ui.md) and run `npm run test:live-rls` after configuring the ignored `.env.rls.local` file and confirming the seeded draft. This creates `rls-live-evidence.json` only when an actual run reaches evidence collection. The runner's three automated mock-provider tests do not constitute a successful live authentication test. All 43 local checks pass; authenticated live results remain pending until the student executes the runner.
+
+## Actual other-user authentication results — October 17, 2026
+
+The student executed `npm run test:live-rls` against the configured Supabase project and deployed Beacon site. All eight checks passed; actual recorded results are in [rls-live-evidence.json](rls-live-evidence.json). Supabase Auth verified the signed-in user and the runner checked that the UUID differs from the seeded owner. No service-role key was used. Review confirmed that the configured project key, optional service key, email, password and JWT patterns are absent from the report.
+
+- Positive controls: approved fixture returned 200 for both anonymous and other authenticated user.
+- Anonymous direct draft read: 200 with `[]`; Beacon POST: 401 with `Authentication required.`.
+- Other-user direct draft SELECT and PATCH: 200 with `[]`.
+- Other-user INSERT claiming the seeded owner's ID: 403 with PostgreSQL code `42501` and a row-level security policy error.
+- Other-user Beacon PATCH: 404 with `Editable listing not found.`.
+
+This supersedes the earlier pending status for live second-user verification. The known-draft precondition was acknowledged through the runner's local confirmation flag; manual confirmation that the draft title remains unchanged is still pending. Live owner/admin operations and required separate AI/human review remain outstanding. The [closeout response draft](rls-closeout-response.md) includes the declared policies, role matrix, and exact credential-redacted requests/raw response bodies.
