@@ -1,6 +1,6 @@
 # Verification evidence and access matrix
 
-Local execution: October 17, 2026. Node v24.19.0. The current suite has 40 passing checks, including the restored Next.js interface and both migration versions. See [test-output.txt](test-output.txt) for captured test output and [security-output.txt](security-output.txt) for the scan/audit results.
+Local execution: October 17, 2026. Node v24.19.0. The current suite has 43 passing checks, including the restored Next.js interface and both migration versions. See [test-output.txt](test-output.txt) for captured test output and [security-output.txt](security-output.txt) for the scan/audit results.
 
 ## Role matrix
 
@@ -47,3 +47,13 @@ The local automated suite uses no genuine credentials. The subsequent live HTTP/
 | Separate ChatGPT and Gemini critique and human DDL review | Pending | Actual output, accepted/rejected suggestions, tests, student commit |
 
 Supabase Auth must validate the JWT and supply `auth.uid()` in deployment. The local shim only models that context; a hosted configuration mistake cannot be ruled out by the local suite. Never disable RLS to make public reads work: check grants, policy, and publication status first.
+
+## Vercel closeout verification — October 17, 2026
+
+Deployment: https://cis3610-capstone-beacon.vercel.app. User reported that PR #4 was merged and the site deployed; GitHub confirms PR #4 is merged. Direct HTTPS checks confirm homepage 200, listings 200 with six fictional public listings and presentation columns, and sponsors 200 with six fictional active sponsors. These results verify that the hosted presentation fields and optional fixture records are now available; earlier `0001`-only evidence remains a historical snapshot.
+
+Without an Authorization header, GET of the known draft through Beacon returns 404 with `{"error":"Listing not found."}` and POST of a valid fictional listing payload returns 401 with `{"error":"Authentication required."}`. Exact paths, request body and raw API response bodies are captured in [vercel-verification.txt](vercel-verification.txt). A real second authenticated-user JWT test, owner/admin checks, required separate AI reviews, and individual student contribution evidence remain pending. Deployment checks do not substitute for those tests.
+
+## Live authenticated test preparation
+
+See [testing without a sign-in UI](testing-without-sign-in-ui.md) and run `npm run test:live-rls` after configuring the ignored `.env.rls.local` file and confirming the seeded draft. This creates `rls-live-evidence.json` only when an actual run reaches evidence collection. The runner's three automated mock-provider tests do not constitute a successful live authentication test. All 43 local checks pass; authenticated live results remain pending until the student executes the runner.

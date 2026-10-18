@@ -31,6 +31,10 @@ test('secret scan accepts empty env examples and flags/redacts populated credent
   assert.equal(result.status, 1);
   assert.match(result.stdout, /working tree: .env.bad/);
   assert.doesNotMatch(result.stdout, new RegExp(fakeValue));
+  await writeFile(join(cwd, '.env.bad'), `BEACON_TEST_PASSWORD=${fakeValue}\n`);
+  const passwordResult = scan();
+  assert.equal(passwordResult.status, 1);
+  assert.doesNotMatch(passwordResult.stdout, new RegExp(fakeValue));
 });
 test('secret scan detects synthetic token in history after working-tree deletion', async t => {
   const { cwd, git, scan } = await repo(t);

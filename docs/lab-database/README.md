@@ -40,6 +40,8 @@ POST requires `title`, `description`, `city`, and integer `rent_cents`. PATCH ac
 
 The public UI implements listing browse, filters, detail pages, and an active sponsor banner. A sign-in/dashboard UI, sponsor CRUD routes, inquiry routes, audit events, deployment, and production operational hardening are outside this lab implementation. Sponsors and inquiries have schema/RLS/test coverage. The required POST/PATCH behavior is available through the listing API.
 
+To collect the actual second-user JWT denial evidence without a browser sign-in form, follow [testing without a sign-in UI](testing-without-sign-in-ui.md). The test script uses private local credentials and saves redacted request/response evidence.
+
 ## Finish before submission
 
 - Apply the new `0002` migration and optional presentation seed to the existing development project; record redacted outcomes and repeat negative cases with actual Auth users. Use disposable test accounts, never real stakeholder data.

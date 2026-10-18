@@ -44,3 +44,10 @@ Never substitute the old discovery-stage Gemini output in the pasted course samp
 - **Commit:** `e23e5d3` on `feature/nextjs-interface`; draft PR https://github.com/byteboss22/cis3610-capstone-beacon/pull/4. Record human review/fixes separately.
 
 Separate ChatGPT and Gemini database critiques are still pending. This follow-up does not substitute for them.
+
+## RLS closeout test runner — October 17, 2026
+
+- **User question:** “ohh than how can I test if the site doesn't use anything” after discovering that the browser interface has no sign-in form/callback.
+- **Actual assistance:** Codex distinguished public browser UI from protected backend/API routes and prepared `scripts/capture-rls-evidence.mjs`, a private local credential template, and a student runbook. The test runner signs in through Supabase Auth, verifies the subject is not the seeded owner, records explicit Authorization states and tests direct RLS and Beacon route denials. Credentials are redacted; no service key is used.
+- **Verification:** Mock-provider tests cover request authentication states, secret redaction, prerequisite enforcement and detection of an unexpected successful forbidden write. Existing schema/API/UI tests remain in the suite. A blank-config invocation fails safely with a missing-variable message. Real other-user authentication has NOT run; the student must fill the ignored local file and execute the runner. Vercel anonymous read/denial results were captured separately in `vercel-verification.txt`.
+- **Limitations:** No browser sign-in/dashboard implementation is claimed. The script is evidence collection for the implemented backend. Manual fixture confirmation is required to distinguish RLS filtering from a nonexistent target. Individual contribution, manual review and required separate AI critiques remain pending.
