@@ -16,7 +16,8 @@
     "test": "node --import tsx --test tests/*.test.js tests/*.test.tsx",
     "test:rls": "node --test tests/rls.test.js",
     "scan:secrets": "python3 scripts/scan-secrets.py",
-    "verify:live": "node --env-file=.env.local scripts/verify-live-ui.mjs"
+    "verify:live": "node --env-file=.env.local scripts/verify-live-ui.mjs",
+    "test:live-rls": "node --env-file=.env.local --env-file=.env.rls.local scripts/capture-rls-evidence.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.0.0",

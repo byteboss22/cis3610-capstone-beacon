@@ -13,7 +13,7 @@ PATTERNS = [
     re.compile(rb'\bsb_secret_[A-Za-z0-9_-]{12,}\b'),
     re.compile(rb'\b(?:ghp_|github_pat_)[A-Za-z0-9_]{20,}\b'),
     re.compile(rb'\bAKIA[0-9A-Z]{16}\b'),
-    re.compile(rb'(?m)^[ \t]*(?:export[ \t]+)?(?:[A-Z_]*SUPABASE[A-Z_]*(?:KEY|TOKEN)|DATABASE_URL|PGPASSWORD)[ \t]*=[ \t]*[^\s\r\n#][^\r\n]*'),
+    re.compile(rb'(?m)^[ \t]*(?:export[ \t]+)?(?:[A-Z_]*SUPABASE[A-Z_]*(?:KEY|TOKEN)|DATABASE_URL|PGPASSWORD|BEACON_TEST_PASSWORD)[ \t]*=[ \t]*[^\s\r\n#][^\r\n]*'),
 ]
 
 def git(*args):
