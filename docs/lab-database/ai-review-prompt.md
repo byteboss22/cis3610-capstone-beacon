@@ -1,0 +1,13 @@
+# Exact prompt for ChatGPT and Gemini / Google AI Studio
+
+Use this same prompt in both tools. Attach only the migration and RLS test source, which contain fictional IDs and no credentials. Record the tool/model actually used, date, useful output, rejected output and reasons, executable verification, reviewer, and resulting commit. Do not mark either review complete until it really runs.
+
+> Review this PostgreSQL schema and RLS plan as a defensive database engineer. Identify privilege escalation, ownership, validation, and cascade risks. Give executable tests, but use placeholders for all credentials.
+>
+> This is a student demonstration for a property listing/local sponsorship platform using Supabase Auth and PostgreSQL. All seed records are fictional. Tables are profiles, properties, sponsors, property_sponsors, and inquiries. All five exposed tables enable and force RLS. Anonymous users can read approved properties, active sponsors, and links only when both ends are public. Authenticated owners can create drafts and edit only their own unapproved properties/inactive sponsors. Column grants prohibit changing owner IDs or approval/activation flags. Profiles and inquiries are private to the user. Inquiries can be inserted only for approved properties by the authenticated sender. Clients cannot write partnership links or delete rows.
+>
+> The Node server validates strict JSON schemas. It verifies bearer tokens through Supabase Auth getUser. Ordinary writes use the caller token and explicit ownership/approval filters. A separate approval route checks server-controlled app_metadata.role = admin before creating a service-role client. No client can set administrator flags. Service keys remain in ignored server-only environment configuration with no public prefix. Queries use the Supabase SDK/PostgREST with explicit selected columns and bounded reads.
+>
+> Inspect the attached exact migration and tests: primary and foreign keys, nullability, checks, timestamps, grants, USING/WITH CHECK, cascade behavior, and direct Data API bypass of route validation. Distinguish confirmed defects from assumptions and production extensions. Explain why each test should deny, return zero rows, or succeed for anonymous, owner, other authenticated user, and service role. Check that administrators cannot be impersonated using user_metadata or profile updates. Do not recommend disabling RLS. Do not invent test results or request real credentials.
+>
+> Attached source: supabase/migrations/0001_beacon.sql and tests/rls.test.js.

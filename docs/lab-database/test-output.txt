@@ -1,0 +1,35 @@
+
+> beacon-capstone@0.1.0 test
+> node --test tests/*.test.js
+
+✔ Supabase HTTP adapter preserves caller tokens, selected columns and ownership filters (29.485708ms)
+▶ migration rebuild and PostgreSQL role/RLS denial evidence
+  ✔ all five exposed tables enable and force RLS (0.7215ms)
+  ✔ anonymous sees approved listing, active sponsor and eligible partnership only (5.052542ms)
+  ✔ owner sees own draft and updates it; approved content is immutable (4.814709ms)
+  ✔ other user cannot read or edit another owner draft or inactive sponsor (2.226708ms)
+  ✔ owners cannot self-approve, activate sponsors, transfer ownership or delete (2.961541ms)
+  ✔ owner inserts draft only; spoofed ownership, approval and invalid values fail (3.132166ms)
+  ✔ private inquiries restricted to sender; only approved properties accept inquiries (4.446083ms)
+  ✔ service role bypass is explicit and foreign keys prevent orphans (4.067ms)
+✔ migration rebuild and PostgreSQL role/RLS denial evidence (446.220209ms)
+✔ public GET succeeds without authentication; static allowlist protects server configuration (22.12525ms)
+✔ POST uses verified identity and PATCH passes validated draft fields (8.675417ms)
+✔ unauthenticated and invalid tokens cannot write (2.237ms)
+✔ strict validation blocks ownership spoofing, self-approval, invalid values and malformed input (18.161084ms)
+✔ uneditable or nonexistent drafts return the same 404 (1.346958ms)
+✔ administrator authorization ignores client-editable user_metadata (0.882917ms)
+✔ verified administrator can approve through dedicated route (1.435584ms)
+✔ upstream errors and thrown exceptions never expose details (1.554792ms)
+✔ secret scan accepts empty env examples and flags/redacts populated credential assignments (179.281542ms)
+✔ secret scan detects synthetic token in history after working-tree deletion (196.26525ms)
+✔ UI announces loading then empty and clears busy state (50.975875ms)
+✔ UI handles failure and retry, rendering database content as text (17.421666ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 506.401291

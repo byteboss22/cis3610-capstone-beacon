@@ -1,0 +1,8 @@
+
+> beacon-capstone@0.1.0 scan:secrets
+> python3 scripts/scan-secrets.py
+
+PASS: scanned 50 working-tree paths and 38 reachable Git blobs; no pattern matches.
+Scope: private keys, JWTs, Supabase secret keys, common tokens, and credential environment assignments.
+found 0 vulnerabilities
+.env.local
