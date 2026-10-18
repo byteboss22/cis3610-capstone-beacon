@@ -1,6 +1,6 @@
 # Verification evidence and access matrix
 
-Local execution: October 17, 2026. Node v24.19.0. See [test-output.txt](test-output.txt) for captured test output and [security-output.txt](security-output.txt) for the scan/audit results.
+Local execution: October 17, 2026. Node v24.19.0. The current suite has 40 passing checks, including the restored Next.js interface and both migration versions. See [test-output.txt](test-output.txt) for captured test output and [security-output.txt](security-output.txt) for the scan/audit results.
 
 ## Role matrix
 
@@ -28,21 +28,22 @@ The executable suite covers representative allow/deny paths in this matrix; it i
 - `anon`, `authenticated` owner/other, and `service_role BYPASSRLS` queries with locally set Auth UUID context.
 - HTTP tests: public read; authenticated POST/PATCH; token rejection; strict validation; oversized/malformed JSON; hidden static files; safe errors; non-admin denial; verified admin approval.
 - Supabase SDK HTTP adapter test: explicit selects, approved read filter, read limit, caller JWT forwarding, owner/draft filters, structured mutation values and dedicated service credentials for admin calls.
-- UI DOM tests: loading, empty, error/retry, rendered rent and HTML-like database content displayed as text.
+- React DOM tests: loading, empty, error/retry, combined rent/type/bedroom filters, active sponsors, detail pages, rendered monthly rent and HTML-like database content displayed as text.
 - Scanner self-tests: blank examples allowed, populated credential assignment detected/redacted, synthetic token detected in deleted Git history.
 - Pattern scan of nonignored files and reachable Git blobs; blank `.env.local` is ignored. Dependency audit reports zero vulnerabilities at execution time.
 
-No genuine user token or service credential was used. Passing these tests is not a claim of live Auth/REST configuration testing or a production security certification.
+The local automated suite uses no genuine credentials. The subsequent live HTTP/anonymous Data API checks used the student’s local project URL and anon/publishable key without recording them; see [interface-live-output.txt](interface-live-output.txt). No actual authenticated owner/admin mutation tests or production security certification are claimed.
 
 ## Hosted verification still required
 
 | Evidence | Status | Record after running |
 |---|---|---|
-| Clean development project migration and seed | Pending | Development project alias/date; successful migration version |
-| Actual anonymous Data API read of public/draft fixtures | Pending | Role label, expected public rows/draft zero rows; no keys |
+| Initial development migration and seed | Student confirmed; live fixture reads verified | `0001` and initial fixtures; October 17, 2026 |
+| Hosted presentation migration and optional seed | Pending | `0002` and optional `seed-ui.sql` |
+| Actual anonymous Data API read of public/draft fixtures | Passed | 1 public listing/active sponsor/eligible partnership; draft zero rows; profiles/inquiries SQLSTATE 42501 |
 | Real owner and second-user token negative tests | Pending | Redacted HTTP status and row counts; repeat direct Data API attempts |
 | Trusted administrator route approval | Pending | Non-admin 403, verified-admin 200; public GET changes |
-| Browser visual review against live read route | Pending | Loading/empty/error + approved fictional cards; no configuration screenshots |
+| Browser visual/manual review of restored interface | Pending | React DOM states and live Next HTTP/CSP checks pass; student should inspect the actual browser layout |
 | Separate ChatGPT and Gemini critique and human DDL review | Pending | Actual output, accepted/rejected suggestions, tests, student commit |
 
 Supabase Auth must validate the JWT and supply `auth.uid()` in deployment. The local shim only models that context; a hosted configuration mistake cannot be ruled out by the local suite. Never disable RLS to make public reads work: check grants, policy, and publication status first.

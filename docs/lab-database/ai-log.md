@@ -32,3 +32,15 @@ Codex is an OpenAI coding agent; do not label this session as a separately compl
 - Commit containing the resulting change:
 
 Never substitute the old discovery-stage Gemini output in the pasted course sample for a database schema review.
+
+## Interface integration follow-up — October 17, 2026
+
+- **User request:** “okay lets do that, lets bring that into beacon” referring to the earlier Neighborhood Listing Platform interface.
+- **Actual assistance:** Codex inspected both repositories, imported/adapted the original property cards, filters, sponsor banner and SVG assets, and connected them to Beacon's server API. Source: `byteboss22/neighborhood-listing-platform` main commit `894beca1493c14748fd70df340c2c81282650919`; copied component code matched the local clean worktree. The source application was not edited.
+- **Useful output:** Next.js interface, API integration, public detail/sponsor reads, additive migration `0002`, fictional presentation seed, regression tests and upgrade notes.
+- **Modified/rejected approaches:** Kept `0001` intact because the student had applied it already. Avoided importing old static JSON as the live data source; mapped its fictional records to UUIDs and integer cents in an optional seed instead. Replaced sale-sized price filters with monthly rent. Missing presentation fields remain unknown. Updated imported Next.js dependencies after an audit identified advisories in the older version; current full audit is clean. Removed a React Server Component sentinel from the Pages API entry point after a production smoke test showed it is incompatible there; Pages API routes are server-only bundles, and client-build checks verify configured keys are absent.
+- **Actual verification:** 40 local checks pass, including both migration versions, new field constraints and ownership denials, React filter/detail/sponsor/retry states, and API adapter fallback rules. Type checking, lint, and the production build pass. A production server connected to the student's live `0001` project passes public reads and anonymous denial checks. No hosted `0002` or owner/admin mutation tests have run. No browser visual review is claimed; UI testing uses React/JSDOM and live HTTP/CSP checks.
+- **Human review and individual contribution:** Pending student review. User confirmed initial schema/seed execution and initial live page setup; this is reported confirmation, not a claim that Codex applied those hosted scripts.
+- **Commit:** Identify the interface implementation commit on `feature/nextjs-interface` and the follow-up PR; record human review/fixes separately.
+
+Separate ChatGPT and Gemini database critiques are still pending. This follow-up does not substitute for them.

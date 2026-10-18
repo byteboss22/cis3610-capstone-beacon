@@ -7,17 +7,41 @@
     "node": "^24.15.0 || >=26.0.0"
   },
   "scripts": {
-    "start": "node --env-file=.env.local server/index.js",
-    "test": "node --test tests/*.test.js",
+    "dev": "next dev --hostname 127.0.0.1",
+    "start": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start:production": "next start --hostname 127.0.0.1",
+    "lint": "eslint src server tests --max-warnings=0",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.js tests/*.test.tsx",
     "test:rls": "node --test tests/rls.test.js",
-    "scan:secrets": "python3 scripts/scan-secrets.py"
+    "scan:secrets": "python3 scripts/scan-secrets.py",
+    "verify:live": "node --env-file=.env.local scripts/verify-live-ui.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.0.0",
+    "next": "^16.4.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "zod": "^4.0.0"
   },
   "devDependencies": {
     "@electric-sql/pglite": "^0.3.0",
-    "jsdom": "^30.1.3"
+    "@eslint/js": "^10.0.1",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
+    "@types/jsdom": "^30.0.0",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^10.13.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "jsdom": "^30.1.3",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.71.2"
   }
 }

@@ -37,3 +37,33 @@ test('Supabase HTTP adapter preserves caller tokens, selected columns and owners
   assert.equal(requests[5].auth, 'Bearer test-service');
   assert.deepEqual(requests[5].body, { approved: true });
 });
+
+test('presentation reads keep approval filters and fall back only for missing columns', async t => {
+  const requests = [];
+  let permissionError = false;
+  const server = createServer((req, res) => {
+    const url = new URL(req.url, 'http://localhost');
+    requests.push(url);
+    const rich = /property_type|message/.test(url.searchParams.get('select') || '');
+    if (permissionError || rich) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ code: permissionError ? '42501' : '42703', message: 'Test provider error' }));
+    } else {
+      res.writeHead(200, { 'Content-Type': 'application/json' }); res.end('[]');
+    }
+  });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => new Promise(resolve => { server.close(resolve); server.closeAllConnections(); }));
+  const db = createDatabase({ SUPABASE_URL: `http://127.0.0.1:${server.address().port}`, SUPABASE_ANON_KEY: 'test-anon' });
+  assert.deepEqual((await db.listings()).data, []);
+  assert.equal(requests.length, 2);
+  assert.ok(requests.every(url => url.searchParams.get('approved') === 'eq.true'));
+  await db.listing('approved-listing');
+  assert.ok(requests.slice(2, 4).every(url => url.searchParams.get('id') === 'eq.approved-listing' && url.searchParams.get('approved') === 'eq.true'));
+  await db.sponsors();
+  assert.ok(requests.slice(4, 6).every(url => url.searchParams.get('active') === 'eq.true' && url.searchParams.get('limit') === '50'));
+  permissionError = true;
+  const before = requests.length;
+  assert.equal((await db.listings()).error.code, '42501');
+  assert.equal(requests.length, before + 1);
+});

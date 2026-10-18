@@ -1,0 +1,24 @@
+Observed October 17, 2026 (America/Los_Angeles).
+Next.js production-mode server connected to the student's Supabase development project.
+Hosted schema: 0001. Migration 0002 and seed-ui.sql have not been applied here.
+No authenticated owner/admin mutations were executed.
+
+PASS: Next.js homepage 200; script nonce matches per-request CSP.
+PASS: A second page request uses a different nonce.
+PASS: Production CSP has neither unsafe-eval nor unsafe-inline.
+PASS: /api/listings → HTTP 200.
+PASS: /api/sponsors → HTTP 200.
+PASS: /api/listings/aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa → HTTP 200.
+PASS: /properties/aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa → HTTP 200.
+PASS: /properties/brookhaven-apartment.svg → HTTP 200.
+PASS: /api/listings/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb → HTTP 404.
+PASS: /.env.local → HTTP 404.
+PASS: /server/database.js → HTTP 404.
+PASS: Unauthenticated POST → HTTP 401.
+PASS: Direct anonymous properties read → 1 public fixture.
+PASS: Direct anonymous sponsors read → 1 public fixture.
+PASS: Direct anonymous property_sponsors read → 1 public fixture.
+PASS: Direct anonymous draft read → 0 rows.
+PASS: Direct anonymous profiles read denied → SQLSTATE 42501.
+PASS: Direct anonymous inquiries read denied → SQLSTATE 42501.
+PASS: Client build contains no locally configured Supabase API key.

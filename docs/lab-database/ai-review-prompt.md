@@ -10,4 +10,4 @@ Use this same prompt in both tools. Attach only the migration and RLS test sourc
 >
 > Inspect the attached exact migration and tests: primary and foreign keys, nullability, checks, timestamps, grants, USING/WITH CHECK, cascade behavior, and direct Data API bypass of route validation. Distinguish confirmed defects from assumptions and production extensions. Explain why each test should deny, return zero rows, or succeed for anonymous, owner, other authenticated user, and service role. Check that administrators cannot be impersonated using user_metadata or profile updates. Do not recommend disabling RLS. Do not invent test results or request real credentials.
 >
-> Attached source: supabase/migrations/0001_beacon.sql and tests/rls.test.js.
+> Attached source: supabase/migrations/0001_beacon.sql, supabase/migrations/0002_listing_presentation.sql and tests/rls.test.js. The additive migration adds optional presentation columns and narrow column grants without changing ownership/publication policies.

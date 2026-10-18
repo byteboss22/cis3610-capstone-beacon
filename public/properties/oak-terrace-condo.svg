@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Modern condo building with large windows">
+  <rect width="800" height="600" fill="#cfe6ed"/>
+  <rect y="480" width="800" height="120" fill="#92b5a0"/>
+  <path d="M170 192h460v300H170Z" fill="#e7e6dc"/>
+  <path d="M212 118h376v74H212Z" fill="#d2d7d3"/>
+  <path d="M158 180h484v22H158Z" fill="#626e6e"/>
+  <g fill="#8dbbc8" stroke="#f7f6ed" stroke-width="11">
+    <rect x="205" y="226" width="114" height="103"/><rect x="343" y="226" width="114" height="103"/><rect x="481" y="226" width="114" height="103"/>
+    <rect x="205" y="355" width="114" height="103"/><rect x="343" y="355" width="114" height="103"/><rect x="481" y="355" width="114" height="103"/>
+  </g>
+  <path d="M192 335h416M192 464h416" stroke="#617276" stroke-width="10"/>
+  <path d="M334 492h132v108H334Z" fill="#b9b9ae"/>
+  <path d="M140 600h520l-74-108H214Z" fill="#c5c7bb"/>
+  <rect x="72" y="329" width="25" height="179" fill="#6f624b"/>
+  <circle cx="83" cy="310" r="76" fill="#6c9c76"/>
+  <rect x="706" y="341" width="22" height="167" fill="#6f624b"/>
+  <circle cx="718" cy="323" r="69" fill="#78a47c"/>
+</svg>

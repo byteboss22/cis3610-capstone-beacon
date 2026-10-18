@@ -23,6 +23,18 @@ erDiagram
     text city
     integer rent_cents
     boolean approved
+    text property_type
+    text address_line_1
+    text address_line_2
+    text state
+    text zip_code
+    smallint bedrooms
+    numeric bathrooms
+    integer square_feet
+    text image_url
+    text image_alt
+    text_array amenities
+    text voice_summary
     timestamptz created_at
     timestamptz updated_at
   }
@@ -32,6 +44,7 @@ erDiagram
     text name
     text website
     boolean active
+    text message
     timestamptz created_at
     timestamptz updated_at
   }
@@ -80,3 +93,7 @@ This is an AI-authored inspection; student manual review remains required.
 - PostgreSQL fixtures have no passwords. They demonstrate constraints/RLS, not sign-in. Use separately created development Auth accounts for the hosted HTTP exercise.
 
 References consulted: [Supabase RLS](https://supabase.com/docs/guides/database/postgres/row-level-security), [securing data](https://supabase.com/docs/guides/database/secure-data), and [getUser verification](https://supabase.com/docs/reference/javascript/auth-getuser). Supabase documents that service/secret keys bypass RLS and must remain off the client.
+
+## Additive presentation migration (0002)
+
+The imported interface uses optional typed presentation columns and a sponsor message. Existing rows keep null/unknown details; amenities default to an empty array. Checks bound bedroom counts, half-bath increments, square footage, address formats, local SVG paths and allowed amenities. Numeric bathrooms are not stored with a fixed scale, so direct SQL cannot round an invalid `1.01` into a valid half increment before the CHECK runs. Owner column grants add only display fields. Existing ownership/publication policies and all five RLS flags remain unchanged; tests execute denial scenarios against both schema versions.

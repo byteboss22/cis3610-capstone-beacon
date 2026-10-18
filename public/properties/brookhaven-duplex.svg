@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Brookside Village Duplex</title>
+  <desc id="desc">A side-by-side duplex with two driveways and front lawns</desc>
+  <rect width="800" height="600" fill="#cffafe"/>
+  <rect y="410" width="800" height="190" fill="#75a766"/>
+  <path d="M85 280 260 140l140 115 140-115 175 140v225H85z" fill="#fef3c7" stroke="#374151" stroke-width="12"/>
+  <path d="m70 290 190-160 140 112 140-112 190 160" fill="none" stroke="#374151" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"/>
+  <path d="M400 245v260" stroke="#374151" stroke-width="10"/>
+  <rect x="160" y="315" width="95" height="88" fill="#93c5fd" stroke="#374151" stroke-width="8"/>
+  <rect x="545" y="315" width="95" height="88" fill="#93c5fd" stroke="#374151" stroke-width="8"/>
+  <rect x="285" y="350" width="78" height="155" fill="#9a6642" stroke="#374151" stroke-width="8"/>
+  <rect x="437" y="350" width="78" height="155" fill="#9a6642" stroke="#374151" stroke-width="8"/>
+  <path d="M324 600v-95m152 95v-95" stroke="#d6d3d1" stroke-width="80"/>
+</svg>

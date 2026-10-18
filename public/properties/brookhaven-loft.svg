@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Timberline Mill Historic Loft</title>
+  <desc id="desc">A converted brick mill with large black-framed windows</desc>
+  <rect width="800" height="600" fill="#dbeafe"/>
+  <rect y="475" width="800" height="125" fill="#94a3b8"/>
+  <path d="M90 190h620v330H90z" fill="#a9553d" stroke="#292524" stroke-width="12"/>
+  <path d="M70 200 210 105h500v95z" fill="#783d30" stroke="#292524" stroke-width="12"/>
+  <path d="M150 250h130v150H150zm210 0h130v150H360zm210 0h130v150H570z" fill="#7dd3fc" stroke="#292524" stroke-width="10"/>
+  <path d="M215 250v150m210-150v150m210-150v150M150 325h130m80 0h130m80 0h130" stroke="#292524" stroke-width="7"/>
+  <rect x="345" y="420" width="110" height="100" fill="#292524"/>
+  <path d="M115 225h570M115 435h570" stroke="#d97757" stroke-width="10"/>
+</svg>

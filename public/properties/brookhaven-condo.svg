@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Cedar Ridge Hilltop Condo</title>
+  <desc id="desc">A modern hilltop condominium with glass balconies</desc>
+  <rect width="800" height="600" fill="#dbeafe"/>
+  <path d="M0 460 210 330l190 72 185-120 215 150v168H0z" fill="#879b70"/>
+  <rect x="145" y="135" width="510" height="360" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="12"/>
+  <rect x="195" y="185" width="165" height="105" fill="#7dd3fc" stroke="#334155" stroke-width="8"/>
+  <rect x="440" y="185" width="165" height="105" fill="#7dd3fc" stroke="#334155" stroke-width="8"/>
+  <path d="M175 310h205v52H175zm245 0h205v52H420z" fill="#bfdbfe" stroke="#334155" stroke-width="8"/>
+  <path d="M190 310v52m55-52v52m55-52v52m55-52v52m80-52v52m55-52v52m55-52v52m55-52v52" stroke="#475569" stroke-width="5"/>
+  <rect x="340" y="385" width="120" height="110" fill="#475569"/>
+</svg>
