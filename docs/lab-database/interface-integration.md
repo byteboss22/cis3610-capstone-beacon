@@ -1,6 +1,6 @@
 # Restored Neighborhood Listing Platform interface
 
-Date: October 17, 2026 (America/Los_Angeles). Branch: `feature/nextjs-interface`.
+Date: October 17, 2026 (America/Los_Angeles). Branch: `feature/nextjs-interface`. Implementation: `e23e5d3`; [draft PR #4](https://github.com/byteboss22/cis3610-capstone-beacon/pull/4).
 
 ## What changed
 
